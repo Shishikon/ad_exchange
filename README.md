@@ -22,8 +22,8 @@
 ### 1. Клонировать репозиторий
 
 
-git clone https://github.com/yourusername/ad-exchange.git
-cd ad-exchange
+git clone https://github.com/Shishikon/ad_exchange.git
+cd ad_exchange
 
 ### 2. Создать виртуальное окружение
 
