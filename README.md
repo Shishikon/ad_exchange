@@ -46,6 +46,12 @@ python manage.py migrate
 
 python manage.py createsuperuser
 
+P.S: В базе уже имеется несколько аккаунтов, главным является:
+
+username: effective_mobile_admin
+
+password: emobile123
+
 ### 6. Запустить сервер
 
 python manage.py runserver
@@ -65,3 +71,34 @@ python manage.py test
 4. фильтрация,
 5. отправка предложений обмена,
 6. обработка предложений обмена.
+
+
+## Установка через Docker .tar образ
+
+### 1. Установите Docker
+
+Если нет
+
+https://www.docker.com/products/docker-desktop/
+
+
+1. sudo apt update
+2. sudo apt install docker.io
+3. sudo systemctl start docker
+4. sudo systemctl enable docker
+
+
+### 2. Импортируйте Docker-образ
+
+docker load < ad_barter.tar
+
+
+### 3. Импортируйте Docker-образ
+
+docker run -d -p 8000:8000 ad_barter
+
+Теперь проект доступен в браузере по адресу:
+
+http://localhost:8000
+
+P.S: Убедитесь, что файл ad_barter.tar находится в той же папке, где ты выполняешь команду docker load < ad_barter.tar, или укажи полный путь к файлу.
