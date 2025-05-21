@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="margin-top: 120px; padding-top: 80px;">
+<h2>Предложить обмен на: "{{ ad_receiver.title }}"</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <p>Ваше объявление:</p>
+    {{ form.ad_sender }}
+
+    <p>Комментарий (необязательно):</p>
+    {{ form.comment }}
+
+    <button type="submit">Отправить предложение</button>
+</form>
+
+    </div>
+{% endblock %}

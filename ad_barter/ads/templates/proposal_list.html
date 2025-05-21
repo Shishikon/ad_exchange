@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="margin-top: 120px; padding-top: 80px;">
+<h2>📥 Полученные предложения</h2>
+<ul>
+{% for p in received %}
+    <li>
+        <b>От:</b> {{ p.ad_sender.title }}<br>
+        <b>На:</b> {{ p.ad_receiver.title }}<br>
+        <b>Комментарий:</b> {{ p.comment|linebreaksbr }}<br>
+        <b>Статус:</b> {{ p.get_status_display }}<br>
+        <b>Дата:</b> {{ p.created_at|date:"d.m.Y H:i" }}<br>
+
+        {% if p.status == 'pending' %}
+            <a href="{% url 'proposal_accept' p.pk %}">✅ Принять</a> |
+            <a href="{% url 'proposal_reject' p.pk %}">❌ Отклонить</a>
+        {% else %}
+            <i>Ответ отправлен ({{ p.get_status_display }})</i>
+        {% endif %}
+    </li>
+    <hr>
+{% empty %}
+    <li>Нет полученных предложений</li>
+{% endfor %}
+</ul>
+
+<h2>📤 Отправленные предложения</h2>
+<ul>
+{% for p in sent %}
+    <li>
+        <b>Вы предложили:</b> {{ p.ad_sender.title }}<br>
+        <b>На:</b> {{ p.ad_receiver.title }}<br>
+        <b>Комментарий:</b> {{ p.comment|linebreaksbr }}<br>
+        <b>Статус:</b> {{ p.get_status_display }}<br>
+        <b>Дата:</b> {{ p.created_at|date:"d.m.Y H:i" }}
+    </li>
+    <hr>
+{% empty %}
+    <li>Вы ещё не отправляли предложений</li>
+{% endfor %}
+</ul>
+
+    </div>
+{% endblock %}

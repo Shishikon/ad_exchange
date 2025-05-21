@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="margin-top: 120px; padding-top: 80px; margin-bottom: 120px; padding-bottom: 80px;">
+
+
+<h2>Форма объявления</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <p>
+        <label for="{{ data.title.id_for_label }}">Название:</label><br>
+        {{ data.title }}
+    </p>
+
+    <p>
+        <label for="{{ data.description.id_for_label }}">Описание:</label><br>
+        {{ data.description }}
+    </p>
+
+    <p>
+        <label for="{{ data.image_url.id_for_label }}">Ссылка на изображение:</label><br>
+        {{ data.image_url }}
+    </p>
+
+    <p>
+        <label for="{{ data.category.id_for_label }}">Категория:</label><br>
+        {{ data.category }}
+    </p>
+
+    <p>
+        <label for="{{ data.condition.id_for_label }}">Состояние:</label><br>
+        {{ data.condition }}
+    </p>
+
+    <button type="submit">Сохранить</button>
+</form>
+
+    </div>
+{% endblock %}

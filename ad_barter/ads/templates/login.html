@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="mt-5 pt-5" style="margin-top: 120px;">
+
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <form method="post" action="">
+              {% csrf_token %}
+              <p class="fw-bold mb-2 text-uppercase">Введите логин и пароль</p>
+
+              {% if form.errors %}
+                  <div class="alert alert-danger">
+                      Пожалуйста, проверьте правильность ввода данных.
+                  </div>
+              {% endif %}
+
+              <div class="form-outline form-white mb-4">
+                <label class="form-label" for="id_username">Имя пользователя</label>
+                {{ form.username }}
+
+
+              </div>
+
+              <div class="form-outline form-white mb-4">
+                <label class="form-label" for="id_password">Пароль</label>
+                {{ form.password }}
+
+
+              </div>
+
+              <button type="submit" class="btn btn-outline-light btn-lg px-5">Войти</button>
+
+            </form>
+
+            <div class="mt-4">
+              <p class="mb-0">Нет аккаунта?
+                <a href="{% url 'register' %}" class="text-white-50 fw-bold">Зарегистрируйтесь</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+{% endblock %}

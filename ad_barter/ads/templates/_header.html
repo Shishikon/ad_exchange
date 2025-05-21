@@ -1,0 +1,73 @@
+{% load static %}
+
+
+<header class="header-area" id="header-area">
+    <div class="dope-nav-container breakpoint-off">
+        <div class="container">
+            <div class="row">
+                <!-- dope Menu -->
+                <nav class="dope-navbar justify-content-between" id="dopeNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" style="color: #e71cb6" href="{% url 'ad_list' %}">Домой</a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="dope-navbar-toggler">
+                            <span class="navbarToggler">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="dope-menu">
+
+                        <!-- close btn -->
+                        <div class="dopecloseIcon">
+                            <div class="cross-wrap">
+                                <span class="top"></span>
+                                <span class="bottom"></span>
+                            </div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="dopenav">
+                            <ul id="nav">
+
+                                <li>
+                                    <a style="color:#e71cb6" href="{% url 'ad_list' %}">Home</a>
+                                </li>
+                                    {% if user.is_authenticated %}
+                                    Привет, {{ user.username }}
+                                <li>
+                                    <a style="color: #e71cb6" href="{% url 'ad_create' %}">Создать объявление</a>
+                                </li>
+
+                                <li>
+                                    <a style="color: #e71cb6" href="{% url 'proposal_list' %}">Обмены</a>
+                                </li>
+
+                                <li>
+                                    <a style="color: #e71cb6" href="{% url 'logout' %}">Выйти</a>
+                                </li>
+                                {% else %}
+                                <li>
+                                    <a style="color: #e71cb6" href="{% url 'login' %}">Войти</a>
+                                </li>
+
+                                <li>
+                                    <a style="color: #e71cb6" href="{% url 'register' %}">Зарегистрироваться</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+

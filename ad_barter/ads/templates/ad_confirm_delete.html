@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5 pt-5" style="margin-top: 120px;">
+<div class="container mt-5 pt-5" style="margin-top: 120px;">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow">
+        <div class="card-body text-center">
+
+          <h2 class="mb-4 text-danger">Удалить объявление</h2>
+          <p class="mb-4">Вы уверены, что хотите удалить <strong>"{{ object.title }}"</strong>?</p>
+
+          <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger me-3">✅ Да, удалить</button>
+            <a href="/" class="btn btn-secondary">❌ Отмена</a>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}
